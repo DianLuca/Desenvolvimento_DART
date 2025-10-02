@@ -15,7 +15,7 @@ void main(){
   print('');
   print('-'* 70);
   print('LISTAGEM COM FOR\n');
-  // Lista do tripo String
+  // Lista do tipo String
   List<String> panteras76 = ['Kelly Garrett', 'Jill Munroe', 'Sabrina Duncan'];
   for(String personagem in panteras76) {
     print(personagem); // Com quebra de linha
@@ -23,7 +23,7 @@ void main(){
 
   print('-'* 70);
   print('FOR EACH \n');
-  // Lista do tripo String
+  // Lista do tipo String
   List<String> panteras = ['Jaclyn Smith', 'Farrah Fawcett', 'Kate Jackson'];
   panteras.forEach((atriz) {
     print(atriz);
