@@ -23,5 +23,6 @@ void main() {
   print("Meu nome é $nome, tenho $idade anos.");
   print("Minha altura é ${altura.toStringAsFixed(2)}m.");
   print("Esta é uma aula de Dart? $opcao");
+  print("$teste é $numero");
   print("-" * 70);
 }

@@ -19,7 +19,8 @@ void main() {
   print('-' * 70);
   print('\nExemplo 3: Acessando valor com !');
   // nome agora tem valor, então podemos utilizar nome!
-  String texto = nome!; // Usando o operador ! para "tirar" o ? do tipo
+  String texto = nome; // nome!; Neste caso não há necessidade pois o valor já foi definido acima, portanto não será nulo
+  // Usando o operador ! para "tirar" o ? do tipo
   print('Texto com nome: $texto');
 
   // ------------
