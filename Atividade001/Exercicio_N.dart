@@ -1,0 +1,1 @@
+// Faça um programa para encontrar o dobro de um número caso seja positivo e o seu triplo se for negativo, imprimindo o resultado.

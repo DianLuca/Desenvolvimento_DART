@@ -1,0 +1,1 @@
+// Faça um programa que receba um número inteiro. O programa deve exibir a tabuada de multiplicação deste número.

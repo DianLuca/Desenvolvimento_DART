@@ -1,0 +1,1 @@
+// Faça um programa que receba um valor e exiba se ele é par ou ímpar

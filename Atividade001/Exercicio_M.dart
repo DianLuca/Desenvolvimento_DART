@@ -1,0 +1,2 @@
+// Faça um algoritmo que leia dois valores de A e B. Se os valores forem iguais multiplique A por B. Ao Final de qualquer um dos cálculos 
+// deve-se atribuir o resultado para uma variável C e mostrar seu conteúdo na tela.
