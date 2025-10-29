@@ -4,17 +4,20 @@ import 'dart:io';
 void main(){
   while(true){
       print('----- Contagem regressiva -----');
-      stdout.write('Insira o valor a temperatura do líquido (°C): ');
+      stdout.write('Insira o valor da temperatura do líquido (°C): ');
       String? entradaTemperatura = stdin.readLineSync();
+      stdout.write('Insira a taxa em que a temperatura será resfriada (%)): ');
+      String? entradaTaxa = stdin.readLineSync();
       
       try {
-        double temperatura = double.parse(entradaTemperatura!);
+        double temperatura = double.parse(entradaTemperatura!.replaceAll(',', '.').trim());
+        double taxa = double.parse(entradaTaxa!.replaceAll(',', '.').trim());
         double temperaturaResfriando;
         int tempoResfriando = 0;
 
         while(true){
           if(temperatura > 25){
-            temperaturaResfriando = (2 / 100) * temperatura;
+            temperaturaResfriando = (taxa / 100) * temperatura;
 
             temperatura -= temperaturaResfriando;
           } else {
