@@ -3,16 +3,47 @@
 // Após a filtragem, deve-se calcular a soma total desses números restantes.
 import 'dart:io';
 
+List<int> numeros = [];
 void main() {
     while(true){
-        
+      print('----- Filtragem e Soma Condicional de Pares -----');
+
+      stdout.write('Digite quantos números você deseja inserir na lista: ');
+      String? contagem = stdin.readLineSync();
+
+      int cont = int.parse(contagem!);
+      
+      for (int i = 0; i < cont; i++){
+        stdout.write('Insira os valores: ');
+        String? valor = stdin.readLineSync();
+
+        int num = int.parse(valor!);
+
+        numeros.add(num);
+      }
+
+      int numeroNaoCorespondetes = 0;
+
+      stdout.write('\nOs valores pares e maiores que 10: ');
+      for (int numero in numeros){
+        if(numero % 2 == 0 && numero > 10){
+          stdout.write('$numero | ');
+        } else {
+          numeroNaoCorespondetes += numero;
+        }
+      }
+
+      stdout.write('\nA soma dos demais valores inseridos é: $numeroNaoCorespondetes.');
+
       print('');
-      stdout.write('Deseja encerrar o sistema(s - sim | n - não)? ');
+      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
       String? sair = stdin.readLineSync();
 
       if(sair != null && sair.trim().isNotEmpty && sair == 's'){
           print('Programa encerrado!');
           break;
+      } else {
+        numeros.clear();
       }
     }
 }
