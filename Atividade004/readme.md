@@ -1,4 +1,4 @@
-# Projeto 3 – Sistema de Notas e Desempenho Escolar(Augusto - Vinícius - Dian)
+# Projeto 3 – Sistema de Notas e Desempenho Escolar
 
 ##
 
