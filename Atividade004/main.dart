@@ -13,7 +13,7 @@ void main() {
     print("\x1B[2J\x1B[0;0H");
     print('--------- Sistema de Notas e Desempenho Escolar ---------');
     print(
-      '1 - Exibir lista de alunos \n2 - Cadastrar um novo aluno \n3 - Atualizar Cadastro \n4 - Sair',
+      '1 - Exibir lista de alunos \n2 - Cadastrar um novo aluno \n3 - Atualizar Cadastro \n4 - Remover aluno \n5 - Sair',
     );
     stdout.write('\nDigite a opção desejada: ');
     String? opcaoEntrada = stdin.readLineSync();
@@ -129,6 +129,37 @@ void main() {
         print("\x1B[2J\x1B[0;0H");
         break;
       case '4':
+        print("\x1B[2J\x1B[0;0H");
+        print('--------- REMOVER ALUNO ---------');
+        stdout.write('Qual o nome do aluno que deseja remover: ');
+        String? nomeEntrada = stdin.readLineSync();
+        String nome = nomeEntrada!.toUpperCase().trim();
+
+        // ANY retorna true se algum elemento da lista atender a condição 
+        if (alunos.any((aluno) => aluno.containsKey(nome))) {
+          stdout.write('Deseja remover o aluno(a) $nome (s - sim | n - não): ');
+          String? remover = stdin.readLineSync();
+
+          if(remover != null && remover.toLowerCase().trim() == 's'){
+            for (var aluno in alunos) {
+              aluno.remove(nome);
+            }
+            print(
+              'As notas do aluno(a): $nome foi removido com sucesso!',
+            );
+          } else {
+            print('O aluno $nome não foi removido!');
+          }
+        }  else {
+          print('Aluno(a) $nome não encontrado!');
+        }
+
+
+        stdout.write('\nPressione "Enter" para continuar: ');
+        stdin.readLineSync();
+        print("\x1B[2J\x1B[0;0H");
+        break;
+      case '5':
         print('--------- MENU DE ENCERRAMENTO ---------');
         break;
       default:
@@ -136,13 +167,13 @@ void main() {
         break;
     }
 
-    if (opcao == '4') {
+    if (opcao == '5') {
       stdout.write(
         '\nDeseja realmente encerrar o sistema(s - sim | n - não)? ',
       );
       String? sair = stdin.readLineSync();
 
-      if (sair != null && sair.trim().isNotEmpty && sair == 's') {
+      if (sair != null && sair.trim().isNotEmpty && sair.toLowerCase() == 's') {
         print("\x1B[2J\x1B[0;0H");
         print('Programa encerrado!');
         break;
