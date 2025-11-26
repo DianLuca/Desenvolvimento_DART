@@ -4,27 +4,37 @@
 import 'dart:io';
 List<int> numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 List<int> numerosImparesIterados = [];
-void main() async{
+
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+      print('Programa encerrado!');
+      exit(0);
+  }
+}
+
+void multiplicarImpar({
+  required List<int> numeros
+}) {
+  for (int num in numeros){
+    if (num % 2 != 0){
+      numerosImparesIterados.add(num * 2);
+    } else {
+      numerosImparesIterados.add(num);
+    }
+  }
+
+  print(numerosImparesIterados);
+}
+
+void main(){
   while(true){
+    print("\x1B[2J\x1B[0;0H");
 
-      for (int num in numeros){
-        if (num % 2 != 0){
-          numerosImparesIterados.add(num * 2);
-        } else {
-          numerosImparesIterados.add(num);
-        }
-      }
+    multiplicarImpar(numeros: numeros);
 
-      numerosImparesIterados.sort();
-
-      print(numerosImparesIterados);
-
-      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-      String? sair = stdin.readLineSync();
-
-      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-          print('Programa encerrado!');
-          break;
-      }
+    finalizar();
   }
 }

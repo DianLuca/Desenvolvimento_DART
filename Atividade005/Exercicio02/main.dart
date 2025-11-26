@@ -16,20 +16,19 @@ List verificarDiferente(List<int> numeros){
 }
 
 
-dynamic finalizar() {
+void finalizar() {
   stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
   String? sair = stdin.readLineSync();
 
   if(sair != null && sair.trim().isNotEmpty && sair == 's'){
       print('Programa encerrado!');
       exit(0);
-  } else {
-    // return numeros.clear();
   }
 }
 
 void main() {
     while(true){
+      print("\x1B[2J\x1B[0;0H");
       
       print(verificarDiferente(numeros));
       

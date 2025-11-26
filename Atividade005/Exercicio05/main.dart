@@ -6,19 +6,33 @@ import 'dart:math';
 
 List<int> numeros = [1, 2, 3, 4, 5, 6, 7, 8, 9, 9, 10, 11];
 
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+      print('Programa encerrado!');
+      exit(0);
+  }
+}
+
+void encontrarSegundoMaior({
+  required List<int> numeros
+}){
+  print('A lista completa: ${numeros}.');
+  numeros.remove(numeros.reduce(max));
+
+  print('O segundo maior valor da lista é: ${numeros.reduce(max)}.');
+}
+
 void main() {
   while(true){
-      print('A lista completa: ${numeros}.');
-      numeros.remove(numeros.reduce(max));
+    print("\x1B[2J\x1B[0;0H");
+    
+    numeros.sort();
 
-      print('O segundo maior valor da lista é: ${numeros.reduce(max)}.');
+    encontrarSegundoMaior(numeros: numeros);
 
-      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-      String? sair = stdin.readLineSync();
-
-      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-          print('Programa encerrado!');
-          break;
-      }
+    finalizar();
   }
 }

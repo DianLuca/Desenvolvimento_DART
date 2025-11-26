@@ -33,7 +33,7 @@ List inserirValores(int valores){
   return numeros;
 }
 
-dynamic finalizar() {
+void finalizar() {
   stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
   String? sair = stdin.readLineSync();
 
@@ -47,12 +47,13 @@ dynamic finalizar() {
 
 void main() {
     while(true){
+      print("\x1B[2J\x1B[0;0H");
       print('----- Filtragem e Soma Condicional de Pares -----');
 
       stdout.write('Digite quantos números você deseja inserir na lista: ');
       String? contagem = stdin.readLineSync();
 
-      int cont = int.parse(contagem!);
+      int cont = int.parse(contagem!.trim());
       
       inserirValores(cont);
 
