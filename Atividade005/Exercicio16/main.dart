@@ -7,6 +7,17 @@ List<int> numeros = [5, 6, 7, 8, 9, 10, 11];
 List<int> numeros1 = [1, 2, 3, 4, 5, 5, 6, 7, 8];
 List<int> intersecao = [];
 
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+    print('Programa encerrado!');
+    exit(0);
+  } else {
+    // palavras.clear();
+  }
+}
 
 void main() async{
   while(true){
@@ -20,12 +31,6 @@ void main() async{
 
       intersecao.forEach((valorPresente) => print(valorPresente));
 
-      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-      String? sair = stdin.readLineSync();
-
-      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-          print('Programa encerrado!');
-          break;
-      }
+      finalizar();
   }
 }

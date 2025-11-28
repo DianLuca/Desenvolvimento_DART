@@ -28,7 +28,7 @@ void exibirMedia({
     somaNotas += num;
   }
   
-  double media = somaNotas / notas.length;
+  double media = somaNotas / listaNotasAlunos.length;
 
   print('A média das notas: ${media.toStringAsFixed(2)}');
 }

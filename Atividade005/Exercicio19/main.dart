@@ -7,6 +7,18 @@ import 'dart:io';
 import 'dart:math';
 
 List<int> numeros = [5, 6, 7, 8, 9, 10];
+
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+    print('Programa encerrado!');
+    exit(0);
+  } else {
+    // palavras.clear();
+  }
+}
 void main() {
   while(true){
     
@@ -33,12 +45,6 @@ void main() {
     print('\nA soma de todos os valores removendo um elemento: ${valorDiminuido}.');
     print('A raiz quadrada da média dos valores: ${sqrt(valorDiminuido)}.');
 
-    stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-    String? sair = stdin.readLineSync();
-
-    if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-        print('Programa encerrado!');
-        break;
-    }
+    finalizar();
   }
 }

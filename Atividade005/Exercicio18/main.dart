@@ -6,6 +6,19 @@ import 'dart:io';
 
 List<int> numeros = [5, 6, 7, 8, 9, 10, 11];
 List<int> numeros1 = [1, 2, 3, 4, 5, 5, 6, 7, 8];
+
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+    print('Programa encerrado!');
+    exit(0);
+  } else {
+    // palavras.clear();
+  }
+}
+
 void main() {
   while(true){
 
@@ -13,12 +26,6 @@ void main() {
     // contains verifica se o valor está presente
     print('Todos os valores estão em ambas as listas: ${numeros1.every((num) => numeros.contains(num))}.');
 
-    stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-    String? sair = stdin.readLineSync();
-
-    if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-        print('Programa encerrado!');
-        break;
-    }
+    finalizar();
   }
 }

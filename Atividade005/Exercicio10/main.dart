@@ -5,21 +5,27 @@
 import 'dart:io';
 List<String> imperios = ['Império Romano', 'Império Bizantino', 'Império Otomano', 'Império Mongol', 'Império Persa',
  'Império Inca', 'Império Asteca', 'Império Maurya', 'Império Chines', 'Império Mali'];
+
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+    print('Programa encerrado!');
+    exit(0);
+  } else {
+    // imperios.clear();
+  }
+}
 void main() {
   while(true){
-      List<String> listaInversa = imperios.reversed.toList();
-      print(listaInversa);
+    List<String> listaInversa = imperios.reversed.toList();
+    print(listaInversa);
 
-      for(int i = (imperios.length - 1); i >= 0; i--){
-        print(imperios[i]);
-      }
-      
-      stdout.write('Deseja encerrar o sistema(s - sim | n - não)? ');
-      String? sair = stdin.readLineSync();
-
-      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-          print('Programa encerrado!');
-          break;
-      }
+    for(int i = (imperios.length - 1); i >= 0; i--){
+      print(imperios[i]);
+    }
+    
+    finalizar();
   }
 }

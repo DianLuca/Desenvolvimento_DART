@@ -7,6 +7,18 @@ import 'dart:io';
 List<int> numeros = [0, -12, 34, -7, 25, -43, 18, -2, 9, -29, 50, -1, 6, -33, 12];
 List<int> positivos = [];
 List<int> negativos = [];
+
+void finalizar() {
+  stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+  String? sair = stdin.readLineSync();
+
+  if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+    print('Programa encerrado!');
+    exit(0);
+  } else {
+    // palavras.clear();
+  }
+}
 void main() {
   while(true){
 
@@ -25,12 +37,6 @@ void main() {
 
     print('A lista completa ordenada por positivos primeiro e negativo e 0 depois será: \n${ordenado}');
 
-    stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
-    String? sair = stdin.readLineSync();
-
-    if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-        print('Programa encerrado!');
-        break;
-    }
+    finalizar();
   }
 }
