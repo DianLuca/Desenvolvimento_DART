@@ -3,8 +3,8 @@
 // presentes em ambas as listas (a interseção).
 import 'dart:io';
 
-List<int> numeros = [5, 6, 7, 8, 9, 10, 11];
-List<int> numeros1 = [1, 2, 3, 4, 5, 5, 6, 7, 8];
+List<int> primeiraLista = [5, 6, 7, 8, 9, 10, 11];
+List<int> segundaLista = [1, 2, 3, 4, 5, 5, 6, 7, 8];
 List<int> intersecao = [];
 
 void finalizar() {
@@ -19,18 +19,32 @@ void finalizar() {
   }
 }
 
+List verificarIntersecao({
+  required List<int> primeiraLista,
+  required List<int> segundaLista
+}){
+  // Para remover os elementos repetidos
+  primeiraLista = primeiraLista.toSet().toList();
+  segundaLista = segundaLista.toSet().toList();
+
+  for(int num in primeiraLista){
+    for (int num1 in segundaLista) {
+      if(num == num1){
+        intersecao.add(num);
+      }
+    }
+  }
+  return intersecao;
+}
+
 void main() async{
   while(true){
-      for(int num in numeros){
-        for (int num1 in numeros1) {
-          if(num == num1){
-            intersecao.add(num);
-          }
-        }
-      }
+    print("\x1B[2J\x1B[0;0H");
 
-      intersecao.forEach((valorPresente) => print(valorPresente));
+    verificarIntersecao(primeiraLista: primeiraLista, segundaLista: segundaLista);
 
-      finalizar();
+    intersecao.forEach((valorPresente) => stdout.write('${valorPresente} | '));
+
+    finalizar();
   }
 }

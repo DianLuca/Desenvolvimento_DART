@@ -1,19 +1,24 @@
-// 13. Mapeamento de Mapas para Strings Formatadas
-// Dada a lista de Maps do exercício anterior (Produtos), crie uma nova lista de strings onde 
-// cada string é um resumo formatado do produto, no formato: "Produto [Nome] - Estoque: [Estoque]".
-
+// 18. Checagem de Inclusão Total de Elementos
+// Dadas duas listas de inteiros, Lista Principal e Lista Subconjunto, verifique se todos 
+// os elementos da Lista Subconjunto estão presentes na Lista Principal. O resultado deve 
+// ser um valor booleano (true ou false).
 import 'dart:io';
 
+List<int> numeros = [5, 6, 7, 8, 9, 10, 11];
+List<int> numeros1 = [1, 2, 3, 4, 5, 5, 6, 7, 8];
 void main() {
-    while(true){
-        
-      print('');
-      stdout.write('Deseja encerrar o sistema(s - sim | n - não)? ');
-      String? sair = stdin.readLineSync();
+  while(true){
 
-      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-          print('Programa encerrado!');
-          break;
-      }
+    // every verifica se todos os valores consta e retorna true ou false 
+    // contains verifica se o valor está presente
+    print('Todos os valores estão em ambas as listas: ${numeros1.every((num) => numeros.contains(num))}.');
+
+    stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+    String? sair = stdin.readLineSync();
+
+    if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+        print('Programa encerrado!');
+        break;
     }
+  }
 }

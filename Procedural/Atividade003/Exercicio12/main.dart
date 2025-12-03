@@ -1,18 +1,26 @@
-// 12. Cálculo de Estoque Total de Produtos Ativos
-// Dada uma lista de Maps, onde cada Map representa um produto com as chaves "nome" (String), 
-// "estoque" (int) e "ativo" (bool), calcule a soma total do estoque de todos os produtos que 
-// estão com o status "ativo" igual a true.
-
+// 17. Normalização e Classificação de Dados
+// Dada uma lista de strings com valores duplicados e em ordem aleatória, o objetivo é 
+// primeiro remover todas as duplicatas e, em seguida, ordenar a lista resultante em ordem 
+// alfabética.
 import 'dart:io';
-void main(){
-  while(true){
-    
-    stdout.write('Deseja encerrar o sistema(s - sim | n - não)? ');
-    String? sair = stdin.readLineSync();
 
-    if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-        print('Programa encerrado!');
-        break;
-    }
+List<dynamic> listaAleatoria = [7, 3, 9, 3, 1, 8, 2, 7, 5, 9, 4, 1, 6, 8, 2];
+// List<dynamic> listaAleatoria = ["banana", 42, 3.14, "gato", 17, 2.71, "banana", 99, 8.5, "lua", 17, "sol", 5.0, 42, "estrela"];
+void main() {
+  while(true){
+      List<dynamic> listaUnicos = listaAleatoria.toSet().toList();
+
+      print(listaAleatoria);
+
+      listaUnicos.sort();
+      print(listaUnicos);
+
+      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+      String? sair = stdin.readLineSync();
+
+      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+          print('Programa encerrado!');
+          break;
+      }
   }
 }

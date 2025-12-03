@@ -1,23 +1,31 @@
-// 11. Seleção de Registros por Idade Mínima
-// Dada uma lista de Maps, onde cada Map representa um usuário com as chaves "nome" (String) e "idade" (int), 
-// filtre e colete em uma nova lista apenas os Maps dos usuários que são maiores de 18 anos.
+// 16. Interseção de Duas Listas
+// Dadas duas listas de inteiros, crie uma nova lista contendo apenas os elementos que estão 
+// presentes em ambas as listas (a interseção).
 import 'dart:io';
-Map<String, int> pessoas = {
-    'João': 25,
-    'Maria': 15,
-    'José': 10,
-    'Bruna': 19,
-  };
 
-void main(){
+List<int> numeros = [5, 6, 7, 8, 9, 10, 11];
+List<int> numeros1 = [1, 2, 3, 4, 5, 5, 6, 7, 8];
+List<int> intersecao = [];
+
+
+void main() async{
   while(true){
-        
-        stdout.write('Deseja encerrar o sistema(s - sim | n - não)? ');
-        String? sair = stdin.readLineSync();
-
-        if(sair != null && sair.trim().isNotEmpty && sair == 's'){
-            print('Programa encerrado!');
-            break;
+      for(int num in numeros){
+        for (int num1 in numeros1) {
+          if(num == num1){
+            intersecao.add(num);
+          }
         }
-    }
+      }
+
+      intersecao.forEach((valorPresente) => print(valorPresente));
+
+      stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
+      String? sair = stdin.readLineSync();
+
+      if(sair != null && sair.trim().isNotEmpty && sair == 's'){
+          print('Programa encerrado!');
+          break;
+      }
+  }
 }
