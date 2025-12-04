@@ -27,7 +27,7 @@ void main(){
   stdout.write('Digite o nome do produto: ');
   String nome = stdin.readLineSync() ?? 'Desconhecido';
 
-  stdout.write('Digite o nome do produto: ');
+  stdout.write('Digite o preço do produto: ');
   double preco = double.tryParse(stdin.readLineSync() ?? "") ?? 0;
 
   // Criação dos objetos usando diferentes construtores
