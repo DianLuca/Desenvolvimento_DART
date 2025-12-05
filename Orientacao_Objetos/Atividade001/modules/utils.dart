@@ -25,6 +25,8 @@ class Validacoes {
 
 class Acoes{
 
+  Acoes();
+
   void finalizar() {
     stdout.write('\nDeseja encerrar o sistema(s - sim | n - não)? ');
     String? sair = stdin.readLineSync();
@@ -33,5 +35,9 @@ class Acoes{
         print('Programa encerrado!');
         exit(0);
     }
+  }
+
+  void limparTela() {
+    print("\x1B[2J\x1B[0;0H");
   }
 }

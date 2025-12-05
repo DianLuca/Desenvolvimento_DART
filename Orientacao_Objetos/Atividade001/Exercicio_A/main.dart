@@ -54,7 +54,10 @@ class Operacoes {
 void main(){
   while(true){
     Validacoes validacoes = Validacoes();
-    print("\x1B[2J\x1B[0;0H");
+    var acoes = Acoes();
+
+    acoes.limparTela();
+    
     print('---------- OPERAÇÕES ----------');
 
     stdout.write('Insira o primeiro valor: ');
@@ -80,14 +83,14 @@ void main(){
       dynamic resto = operacao.divisaoResto();
 
       print('\nRESULTADO DAS OPERAÇÕES');
-      print('O resultado da adição de ${retorno} + ${retorno2}: ${adicao}');
-      print('O resultado da subtração de ${retorno} - ${retorno2}: ${subtracao}');
-      print('O resultado da multiplicação de ${retorno} * ${retorno2}: ${multiplicacao}');
-      print('O resultado da divisão de ${retorno} / ${retorno2}: ${divisao}');
-      print('O resultado do resto da divisão de ${retorno} / ${retorno2}: ${divisaoInteira}');
-      print('O resultado da divisão inteira de ${retorno} / ${retorno2}: ${resto}');
+      print('O resultado da adição de ${retorno} + ${retorno2} = ${adicao}');
+      print('O resultado da subtração de ${retorno} - ${retorno2} = ${subtracao}');
+      print('O resultado da multiplicação de ${retorno} * ${retorno2} = ${multiplicacao}');
+      print('O resultado da divisão de ${retorno} / ${retorno2} = ${divisao.toStringAsFixed(2)}');
+      print('O resultado do resto da divisão de ${retorno} / ${retorno2} = ${divisaoInteira}');
+      print('O resultado da divisão inteira de ${retorno} / ${retorno2} = ${resto}');
     }
 
-    Acoes().finalizar();
+    acoes.finalizar();
   }
 }
