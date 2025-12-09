@@ -1,8 +1,17 @@
 import "../modules/utils.dart";
 import "dart:io";
 
-class Calcular{
-    
+class Tabuada{
+    num valor;
+
+    Tabuada({required this.valor});
+
+    void exibirTabuada(){
+      for(int i = 1; i <=10; i++){
+      num resultado = valor * i; 
+      print('$valor x $i = $resultado');
+    }
+    }
 }
 
 void main(){
@@ -13,7 +22,16 @@ void main(){
     while(true){
         acoes.limparTela();
 
-        
+        print('----- Tabuada de Multiplicação -----');
+
+        stdout.write('Insira um número qualquer: ');
+        String? entrada = stdin.readLineSync()!.replaceAll(',', '.');
+
+        dynamic validar = validacoes.verificarNuloVazio(entrada);
+        dynamic validarNum = validacoes.vericarNumeros(validar);
+
+        Tabuada tabuada = Tabuada(valor: validarNum);
+        tabuada.exibirTabuada();
 
         acoes.finalizar();
     }
