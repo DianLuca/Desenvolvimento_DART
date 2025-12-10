@@ -7,25 +7,52 @@ Validacoes validacoes = Validacoes();
 class Calcular{
     num base;
     num altura;
+    num resultado = 0;
 
     Calcular({required this.base, required this.altura});
 
     void calcularAreaQuadrado(){
-
-      num resultado = pow(base, 2).toDouble();
+      resultado = pow(base, 2).toDouble();
       print('A área do quadrado é de: ${resultado.toStringAsFixed(2)}');
-      // num resultado;
+    }
+
+    void calcularAreaRetangulo(){
+      resultado = base * altura;
+      print('A área do retângulo é de: ${resultado.toStringAsFixed(2)}');
+    }
+
+    void calcularAreaTriangulo(){
+      resultado = (base * altura) / 2;
+      print('A área do retângulo é de: ${resultado.toStringAsFixed(2)}');
+    }
+
+    void calcularAreaCirculo(){
+      resultado = pi * pow(base, 2).toDouble();
+      print('A área do círculo é de: ${resultado.toStringAsFixed(2)}');
     }
 
     void calcularArea(objeto){
-      print('Área do Quadrado');
 
       switch(objeto){
         case '1':
+          print('Área do Quadrado');
           calcularAreaQuadrado();
           break;
+        case '2':
+          print('Área do Retângulo');
+          calcularAreaRetangulo();
+          break;
+        case '3':
+          print('Área do Triângulo');
+          calcularAreaTriangulo();
+          break;
+        case '4':
+          print('Área do Círculo: ');
+          calcularAreaCirculo();
+          break;
         default:
-          print('A opção não está na lista. Tente novamente.');
+          stdout.write('A opção não está na lista. Pressione "Enter" para continuar: ');
+          stdin.readLineSync();
           break;
       }
     }
@@ -38,26 +65,36 @@ void main(){
     while(true){
         acoes.limparTela();
 
-        stdout.write('1 - Quadrado \n2 - Retângulo \n3 - Triângulo \n4 - Círculo \nSelecione uma das opções acima: ');
-        String? objeto = stdin.readLineSync();
+        print('----- Calcular a Área -----');
+        stdout.write('1 - Quadrado \n2 - Retângulo \n3 - Triângulo \n4 - Círculo \n5 - Sair \nSelecione uma das opções acima: ');
+        String? opcao = stdin.readLineSync();
 
-        stdout.write('Insira o valor do lado (ou Base): ');
-        String? entradaBase = stdin.readLineSync()!.replaceAll(',', '.');
-        stdout.write('Insira o valor do lado (ou Altura): ');
-        String? entradaAltura = (stdin.readLineSync() ?? '0');
-        entradaAltura..replaceAll(',', '.');
-
-        dynamic validarBase = validacoes.verificarNuloVazio(entradaBase);
-        dynamic validarNumBase = validacoes.vericarNumeros(validarBase);
-        
-        dynamic validarAltura = validacoes.verificarNuloVazio(entradaAltura);
-        dynamic validarNumAltura = validacoes.vericarNumeros(validarAltura);
-        
-        if(validarNumBase != false && validarNumAltura != false){
-          Calcular calcular = Calcular(base: validarNumBase, altura: validarNumAltura);
-          calcular.calcularArea(objeto);
+        if(opcao == '5'){
+          acoes.finalizar();
         }
 
-        acoes.finalizar();
+        if(opcao != ''){
+          stdout.write('Insira o valor da base (ou Raio): ');
+          String? entradaBase = stdin.readLineSync()!.replaceAll(',', '.').trim();
+          stdout.write('Insira o valor do altura (ou digite 0): ');
+          String? entradaAltura = stdin.readLineSync()!.replaceAll(',', '.').trim();
+
+          dynamic validarBase = validacoes.verificarNuloVazio(entradaBase);
+          dynamic validarNumBase = validacoes.vericarNumeros(validarBase);
+          
+          dynamic validarAltura = validacoes.verificarNuloVazio(entradaAltura);
+          dynamic validarNumAltura = validacoes.vericarNumeros(validarAltura);
+          
+          if(validarNumBase != false && validarNumAltura != false){
+            Calcular calcular = Calcular(base: validarNumBase, altura: validarNumAltura);
+            calcular.calcularArea(opcao);
+          }
+
+          stdout.write('Pressione "Enter" para continuar: ');
+          stdin.readLineSync();
+        } else {
+          stdout.write('Selecione um dos objetos para ser calculado. Pressione "Enter" para continuar: ');
+          stdin.readLineSync();
+        }
     }
 }
